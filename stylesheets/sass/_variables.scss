@@ -1,0 +1,61 @@
+// Variables adapted from Twitter Bootstrap ============================== //
+// https://github.com/twitter/bootstrap/ ================================= //
+
+// Grays
+$black:                       #000;
+$grayDarkest:                 #111;
+$grayDarker:                  #222;
+$grayDark:                    #333;
+$gray:                        #555;
+$grayLight:                   #999;
+$grayLighter:                 #eee;
+$grayLightest:                #f5f5f5;
+$white:                       #fff;
+
+// Accent colors
+$blue:                        #049cdb;
+$blueDark:                    #0064cd;
+$green:                       #46a546;
+$red:                         #9d261d;
+$yellow:                      #ffc40d;
+$orange:                      #f89406;
+$pink:                        #c3325f;
+$purple:                      #7a43b6;
+
+// Typography
+$baseFontSize:                13px;
+$lineHeight:                  18px;
+$baseColor:                   $black;
+$headerFontFamily:            "Helvetica Neue", Helvetica, Arial, sans-serif;
+$textFontFamily:              "Helvetica Neue", Helvetica, Arial, sans-serif;
+$codeFontFamily:              Menlo, Monaco, "Courier New", monospace;
+$linkColor:                   $blueDark;
+$linkColorHover:              darken($linkColor, 15%);
+
+// 12 column 940px grid using Bourbon's grid function =========================================================
+$gw-column:                   60px;
+$gw-gutter:                   20px;
+
+//  div {
+//    width: grid-width(4);         // returns 300px;
+//    margin-left: $gw-gutter;      // returns 20px;
+//  }
+
+// Elliot Jay Stocks' Responsive grid using Bourbon's flex grid function ======================================
+// http://elliotjaystocks.com/blog/a-better-photoshop-grid-for-responsive-web-design/
+$fg-column:                   150px;
+$fg-gutter:                   20px;
+$fg-max-columns:              6;
+
+// This function takes the fluid grid equation (target / context = result) and uses columns to help define each.
+//
+//  div {
+//    width: flex-grid(4);          // returns (660px / 1000px) = 66%;
+//    margin-left: flex-gutter();   // returns (20px / 1000px) = 2%;
+//
+//    p {
+//      width: flex-grid(2, 4);     // returns (320px / 660px) = 48.484848%;
+//      float: left;
+//      margin: flex-gutter(4);     // returns (20px / 660px) = 3.030303%;
+//    }
+//  }

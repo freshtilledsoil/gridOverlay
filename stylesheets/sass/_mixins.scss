@@ -1,0 +1,88 @@
+// Mixins ========================================================================== //
+
+// Opacity, extend to IE
+@mixin opacity ($value) {
+  opacity: $value;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=($value * 100))"; // IE8
+  filter: alpha(opacity=($value * 100)); // IE5-7
+  zoom: 1; // hacks IE requirement that element be positioned
+}
+
+// User select
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+     -moz-user-select: $select;
+      -ms-user-select: $select;
+       -o-user-select: $select;
+          user-select: $select;
+}
+
+// Resizeable
+@mixin resizable($direction) {
+  // Options: horizontal, vertical, both
+  resize: $direction;
+  overflow: auto; // Safari fix
+}
+
+// Bootstrap-style button
+@mixin bootstrap-button($bgColor: $blue, $textColor: $white) {
+  background-color: $bgColor;
+  @include background-image(linear-gradient(top, lighten($bgColor, 15%) 0%, $bgColor 100%));
+  background-repeat: repeat-x;
+  border: 1px solid $bgColor;
+  border-bottom-color: darken($bgColor, 5%);
+  @include border-radius(4px);
+  @include box-shadow(inset 0 1px 0 rgba($white, 0.2), 0 1px 2px rgba($black, 0.05));
+  color: $textColor;
+  cursor: pointer;
+  @include inline-block();
+  font-size: $baseFontSize;
+  font-weight: normal;
+  line-height: $lineHeight;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px darken($bgColor, 25%);
+  @include transition(background-position 0.1s linear);
+  vertical-align: middle;
+
+  &:hover {
+    background-color: $bgColor;
+    background-position: 0 -15px;
+    color: $textColor;
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: darken($bgColor, 5%);
+    background-image: none;
+    @include box-shadow(inset 0 2px 4px rgba($black, 0.15), 0 1px 2px rgba($black, 0.05));
+    outline: 0;
+  }
+}
+
+
+// Helper classes ================================================================== //
+
+// Hide from screenreaders and browsers
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+  visibility: hidden;
+}
