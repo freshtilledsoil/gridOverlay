@@ -266,7 +266,7 @@ html, body {
   padding: 0; }
 
 .center {
-  width: 800px;
+  width: 940px;
   margin: 0 auto;
   padding: 36px 0 60px 0; }
 
@@ -322,6 +322,6 @@ div#grid {
     height: 100%;
     margin: 0 auto;
     position: relative;
-    width: 800px;
-    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0, rgba(255, 255, 255, 0.25) 62px, transparent 62px);
-    background-size: 82px; }
+    width: 940px;
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0, rgba(255, 255, 255, 0.25) 60px, transparent 60px);
+    background-size: 80px; }
