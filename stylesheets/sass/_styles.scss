@@ -1,3 +1,123 @@
+// Variables ============================================================== /
+
+$black:                       #000;
+$grayDarkest:                 #111;
+$grayDarker:                  #222;
+$grayDark:                    #333;
+$gray:                        #555;
+$grayLight:                   #999;
+$grayLighter:                 #eee;
+$grayLightest:                #f5f5f5;
+$white:                       #fff;
+$blue:                        #049cdb;
+$blueDark:                    #0064cd;
+$green:                       #46a546;
+$red:                         #9d261d;
+$yellow:                      #ffc40d;
+$orange:                      #f89406;
+$pink:                        #c3325f;
+$purple:                      #7a43b6;
+
+// Typography
+$baseFontSize:                13px;
+$lineHeight:                  18px;
+$baseColor:                   $black;
+$headerFontFamily:            "Helvetica Neue", Helvetica, Arial, sans-serif;
+$textFontFamily:              "Helvetica Neue", Helvetica, Arial, sans-serif;
+$codeFontFamily:              Menlo, Monaco, "Courier New", monospace;
+$linkColor:                   $blueDark;
+$linkColorHover:              darken($linkColor, 15%);
+
+// 12 column 940px grid using Bourbon's grid function =======================
+$gw-column:                   60px;
+$gw-gutter:                   20px;
+
+/* ==========================================================================
+Reset Styles
+========================================================================== */
+html, body { margin: 0; padding: 0; }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+a:focus { outline: thin dotted $grayDark; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; }
+a:hover, a:active { outline: 0; }
+img { max-width: 100%; height: auto; border: 0; -ms-interpolation-mode: bicubic; }
+button, input, select, textarea { margin: 0; font-size: 100%; vertical-align: middle; }
+button, input { *overflow: visible; line-height: normal; }
+button::-moz-focus-inner, input::-moz-focus-inner { padding: 0; border: 0; }
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+textarea { overflow: auto; vertical-align: top; }
+
+/* ==========================================================================
+Typography Styles
+========================================================================== */
+body { font-family: $textFontFamily; }
+p { margin: 0 0 $lineHeight / 2; font-size: $baseFontSize; line-height: $lineHeight; }
+h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: bold; color: $baseColor; text-rendering: optimizelegibility; }
+h1 { font-size: 30px; line-height: $lineHeight * 2; }
+h2 { font-size: 24px; line-height: $lineHeight * 2; }
+h3 { line-height: $lineHeight * 1.5; font-size: 18px; }
+h4, h5, h6 { line-height: $lineHeight; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; color: lighten($baseColor, 10%); text-transform: uppercase; }
+ul, ol { padding: 0; margin: 0 0 $lineHeight/2 0; }
+ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
+ul { list-style: disc; }
+ol { list-style: decimal; }
+li { line-height: $lineHeight; }
+dl { margin-bottom: $lineHeight; }
+dt, dd { line-height: $lineHeight; }
+dt { font-weight: bold; }
+dd { margin-left: $lineHeight / 2; }
+hr { margin: $lineHeight 0; border: 0; border-top: 1px solid $gray; border-bottom: 1px solid $white; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+abbr { font-size: 90%; text-transform: uppercase; }
+
+// Code Styles ============================================================ /
+code, pre {
+  border: 1px solid $grayLight;
+  padding: 0 3px 2px;
+  font-family: $codeFontFamily;
+  font-size: $baseFontSize - 1;
+  color: $grayDark;
+  @include border-radius(3px);
+}
+
+code {
+  color: $red;
+  @include inline-block;
+  padding: 3px 4px;
+  background-color: $grayLightest;
+  margin-top: 4px;
+}
+
+pre {
+  color: $red;
+  display: block;
+  padding: ($lineHeight - 1) / 2;
+  margin: 0 0 $lineHeight / 2;
+  font-size: 12px;
+  line-height: $lineHeight;
+  background-color: $grayLightest;
+  @include border-radius(4px);
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+
+  &.prettyprint {
+    margin-bottom: $lineHeight;
+  }
+
+  code {
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
 /* ==========================================================================
 Demo Styles
 ========================================================================== */

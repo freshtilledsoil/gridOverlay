@@ -1,6 +1,3 @@
-@import 'bourbon/bourbon';      // Include Bourbon to make CSS3+ extras easier
-@import 'mixins', 'variables';  // Mixins and variables should come first
-@import 'reset';                // Reset HTML elements next
-@import 'type';                 // Then set your basic typography up
-@import 'styles';               // And now you can write your own styles
-@import 'grid';                 // Grid styles
+@import 'bourbon/bourbon';
+@import 'styles';
+@import 'grid';

@@ -1,11 +1,9 @@
 /* ==========================================================================
 Grid Styles
 ========================================================================== */
-@mixin grid ($pageWidth, $columnWidth, $gutterWidth) {
-  background-color: rgba(#000, 0.25);
+@mixin grid ($pageWidth: 940px, $columnWidth: 60px, $gutterWidth: 20px, $baselineHeight: 24px) {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 999;
 
   &::before {
     content: "";
@@ -14,11 +12,18 @@ Grid Styles
     margin: 0 auto;
     position: relative;
     width: $pageWidth;
-    background-image: -webkit-linear-gradient(left, rgba(#fff, 0.25) 0, rgba(#fff, 0.25) $columnWidth, transparent $columnWidth);
-    background-size: $columnWidth + $gutterWidth;
+    background-image:
+      -webkit-linear-gradient(left,
+      rgba(#f00, 0.25) 0,
+      rgba(#f00, 0.25) $columnWidth,
+      transparent $columnWidth),
+      -webkit-linear-gradient(top,
+      transparent ($baselineHeight - 1),
+      rgba(#f00, 0.5) $baselineHeight);
+    background-size: ($columnWidth + $gutterWidth) $baselineHeight;
   }
 }
 
 div#grid {
-  @include grid(940px, 60px, 20px);
+  @include grid();
 }
