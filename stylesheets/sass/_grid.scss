@@ -1,7 +1,7 @@
 /* ==========================================================================
 Grid Styles
 ========================================================================== */
-@mixin grid ($pageWidth: 940px, $columnWidth: 60px, $gutterWidth: 20px, $baselineHeight: 24px) {
+@mixin cssGridOverlay ($pageWidth: 940px, $columnWidth: 60px, $gutterWidth: 20px, $baselineHeight: 24px) {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
 
@@ -24,6 +24,6 @@ Grid Styles
   }
 }
 
-div#grid {
-  @include grid();
+div#cssGridOverlay {
+  @include cssGridOverlay();
 }
