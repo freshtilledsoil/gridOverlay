@@ -226,20 +226,22 @@ footer a:hover {
   color: #0058b3; }
 
 /* ==========================================================================
-Grid Styles
+Grid Overlay Styles
+Author: Steve Hickey | http://stevehickeydesign.com
+Company: Fresh Tilled Soil | http://freshtilledsoil.com
 ========================================================================== */
-div#cssGridOverlay {
-  position: fixed;
+div#gridOverlay {
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0; }
-  div#cssGridOverlay::before {
-    content: "";
-    display: block;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-    width: 940px;
-    background-image: -webkit-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) 60px, transparent 60px), -webkit-linear-gradient(top, transparent 23px, rgba(255, 0, 0, 0.5) 24px);
-    background-size: 80px 24px; }
+  left: 0;
+  width: 940px;
+  margin: 0 auto;
+  background-size: 80px 24px;
+  background-image: -webkit-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) 60px, transparent 60px), -webkit-linear-gradient(top, transparent 23px, rgba(255, 0, 0, 0.5) 24px); }
+
+body {
+  position: relative;
+  height: auto;
+  min-height: 100%; }

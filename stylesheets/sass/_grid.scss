@@ -1,29 +1,31 @@
 /* ==========================================================================
-Grid Styles
+Grid Overlay Styles
+Author: Steve Hickey | http://stevehickeydesign.com
+Company: Fresh Tilled Soil | http://freshtilledsoil.com
 ========================================================================== */
-@mixin cssGridOverlay ($pageWidth: 940px, $columnWidth: 60px, $gutterWidth: 20px, $baselineHeight: 24px) {
-  position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
 
-  &::before {
-    content: "";
-    display: block;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-    width: $pageWidth;
-    background-image:
-      -webkit-linear-gradient(left,
-      rgba(#f00, 0.25) 0,
-      rgba(#f00, 0.25) $columnWidth,
-      transparent $columnWidth),
-      -webkit-linear-gradient(top,
-      transparent ($baselineHeight - 1),
-      rgba(#f00, 0.5) $baselineHeight);
-    background-size: ($columnWidth + $gutterWidth) $baselineHeight;
-  }
+@mixin gridOverlay ($page: 940px, $column: 60px, $gutter: 20px, $baseline: 24px) {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  width: $page;
+  margin: 0 auto;
+  background-size: ($column + $gutter) $baseline;
+  background-image:
+    -webkit-linear-gradient(left,
+    rgba(#f00, 0.25) 0,
+    rgba(#f00, 0.25) $column,
+    transparent $column),
+    -webkit-linear-gradient(top,
+    transparent ($baseline - 1),
+    rgba(#f00, 0.5) $baseline);
 }
 
-div#cssGridOverlay {
-  @include cssGridOverlay();
+div#gridOverlay {
+  @include gridOverlay();
+}
+
+body { // necessary to fix scrolling problem
+  position: relative;
+  height: auto;
+  min-height:100%;
 }

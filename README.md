@@ -1,4 +1,4 @@
-css-grid-overlay
+Grid Overlay
 ================
 
-A method for creating a grid overlay on your site with CSS. Allows you to easily adjust elements to your grid setup.
+A method for creating a grid overlay on your site. Allows you to easily align design elements to your grid.

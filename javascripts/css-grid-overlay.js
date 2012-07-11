@@ -13,10 +13,10 @@
 
 */
 
-(function cssGridOverlay() {
+(function gridOverlay() {
   "use strict";
 
-  var gridMarkup = '<div id="cssGridOverlay"></div>';
+  var gridMarkup = '<div id="gridOverlay"></div>';
   $('body').prepend(gridMarkup);
 
 }());
