@@ -11,13 +11,16 @@ Company: Fresh Tilled Soil | http://freshtilledsoil.com
   margin: 0 auto;
   background-size: ($column + $gutter) $baseline;
   background-image:
-    -webkit-linear-gradient(left,
-    rgba(#f00, 0.25) 0,
-    rgba(#f00, 0.25) $column,
-    transparent $column),
-    -webkit-linear-gradient(top,
-    transparent ($baseline - 1),
-    rgba(#f00, 0.5) $baseline);
+    -webkit-linear-gradient(left, rgba(#f00, 0.25) 0, rgba(#f00, 0.25) $column, transparent $column),
+       -moz-linear-gradient(left, rgba(#f00, 0.25) 0, rgba(#f00, 0.25) $column, transparent $column),
+        -ms-linear-gradient(left, rgba(#f00, 0.25) 0, rgba(#f00, 0.25) $column, transparent $column),
+         -o-linear-gradient(left, rgba(#f00, 0.25) 0, rgba(#f00, 0.25) $column, transparent $column),
+            linear-gradient(left, rgba(#f00, 0.25) 0, rgba(#f00, 0.25) $column, transparent $column),
+    -webkit-linear-gradient(top, transparent ($baseline - 1), rgba(#f00, 0.5) $baseline),
+       -moz-linear-gradient(top, transparent ($baseline - 1), rgba(#f00, 0.5) $baseline),
+        -ms-linear-gradient(top, transparent ($baseline - 1), rgba(#f00, 0.5) $baseline),
+         -o-linear-gradient(top, transparent ($baseline - 1), rgba(#f00, 0.5) $baseline),
+            linear-gradient(top, transparent ($baseline - 1), rgba(#f00, 0.5) $baseline);
 }
 
 div#gridOverlay {
