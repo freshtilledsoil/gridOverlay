@@ -1,7 +1,7 @@
-Grid Overlay
-============
+Grid Overlay jQuery Plugin
+==========================
 
-A method for creating a grid overlay on your site. Allows you to easily align design elements to your grid.
+A jQuery plugin for creating a grid overlay on your site. Allows you to easily align design elements to your grid.
 
 Please Note
 -----------
