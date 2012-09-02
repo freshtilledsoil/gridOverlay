@@ -14,19 +14,21 @@
 */
 
 /*
-  @didgeoridoo modifications on 9/2/2012: Adding on/off functionality with a top-right corner button
-  -Added buttonMarkup string to define absolutely-positioned on/off button
-  -Added body.prepend(buttonMarkup) to insert new button into DOM
-  -Added on("click") event handler for new button
+  @didgeoridoo modifications on 9/2/2012: Adding on/off functionality using an anchor tag and accesskeys
+  -Namespaced jQuery to $ and wrapped with document.ready
+  -Added buttonMarkup string to define anchor with accesskey "g"
+  -Added body.prepend(buttonMarkup) to insert new anchor into DOM
+  -Added on("click") event handler for new button (accesskey fires click event on anchors)
   -Lightly tested in Firefox 14, Chrome 21, and Safari 6
 */
 
+jQuery(document).ready(function($){
 
-$('#gridOverlayOnOff').on("click", function(){
-  $('#gridOverlay').toggle();
-});
+  $('body').on('click', '#gridToggle', function(){
+    $('#gridOverlay').toggle();
+  });
 
-(function gridOverlay() {
+  (function gridOverlay() {
   "use strict";
 
   var page = 940,
@@ -34,7 +36,7 @@ $('#gridOverlayOnOff').on("click", function(){
       gutter = 20,
       baseline = 24,
       gridMarkup = '<div id="gridOverlay" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: ' + page +'px; margin: 0 auto; background-size: ' + (column+gutter) +'px ' + baseline +'px; background-image: -webkit-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) ' + column +'px, transparent ' + column +'px), -webkit-linear-gradient(top, transparent ' + (baseline-1) +'px, rgba(255, 0, 0, 0.5) ' + baseline +'px); background-image: -moz-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) ' + column +'px, transparent ' + column +'px), -moz-linear-gradient(top, transparent ' + (baseline-1) +'px, rgba(255, 0, 0, 0.5) ' + baseline +'px); background-image: -ms-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) ' + column +'px, transparent ' + column +'px), -ms-linear-gradient(top, transparent ' + (baseline-1) +'px, rgba(255, 0, 0, 0.5) ' + baseline +'px); background-image: -o-linear-gradient(left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) ' + column +'px, transparent ' + column +'px), -o-linear-gradient(top, transparent ' + (baseline-1) +'px, rgba(255, 0, 0, 0.5) ' + baseline +'px); background-image: linear, left, rgba(255, 0, 0, 0.25) 0, rgba(255, 0, 0, 0.25) ' + column +'px, transparent ' + column +'px, linear, top, transparent ' + (baseline-1) +'px, rgba(255, 0, 0, 0.5) ' + baseline +'px;"></div>',
-      buttonMarkup = '<div id="gridOverlayOnOff" style="position: fixed; top: 0; right: 0; height: 12px; width: 12px; background-color: transparent; color: red; font-size: 12px; cursor: pointer;">||||</div>', 
+      buttonMarkup = '<a id="gridToggle" accesskey="g" style="position: absolute; height: 0; width: 0; "></a>', 
       body = $('body');
 
   body.prepend(gridMarkup).css({
@@ -45,4 +47,11 @@ $('#gridOverlayOnOff').on("click", function(){
 
   body.prepend(buttonMarkup);
 
+  body.focus();
+
 }());
+
+});
+
+
+
