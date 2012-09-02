@@ -17,17 +17,19 @@
 
 <div class="center">
   <h1>Grid Overlay jQuery Plugin</h1>
-  <p>A jQuery plugin for creating a grid overlay on your site. Allows you to easily align design elements to your grid.</p>
+  <p>A jQuery plugin that creates an overlay on your site for easy alignment of design elements to your grid during development.</p>
   <h3>How to Use</h3>
   <ol>
-    <li>Add the following code:<br />
-      <code>&lt;header&gt;</code>
+    <li>Grab the <a href="https://raw.github.com/javasteve99/gridOverlay/master/javascripts/gridOverlay.js" target="_blank">file/code from Github</a> and call the file at the end of your document, after your jQuery call:<br />
+      <pre>&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;window.jQuery || document.write('&lt;script src="javascripts/jquery.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;
+<strong>&lt;script src="javascripts/gridOverlay.js"&gt;&lt;/script&gt;</strong>
+&lt;/body&gt;
+&lt;/html&gt;</pre>
     </li>
-    <li>And these lines:<br />
-<pre>&lt;section&gt;
-&lt;img /&gt;
-&lt;/section&gt;</pre>
-    </li>
+    <li>Toggle the grid visibility with <strong>Ctrl + G</strong> (try it on this page to see a demo).</li>
+    <li><em>Options</em>: the JS file for the plugin uses variables to allow you to easily specify the page width, column width, gutter width, baseline height and whether or not the grid is visible on page load or has to be toggled on.</li>
+    <li><em>Support</em>: this is intended for development only, not for use in production sites, so support has only been tested in the most recent versions of all major browsers. If you want to test in older browsers and create support, feel free to submit a pull request.</li>
   </ol>
 </div>
 

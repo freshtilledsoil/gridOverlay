@@ -79,7 +79,7 @@ code, pre {
   background-color: $grayLightest;
   border: 1px solid $grayLight;
   @include border-radius(3px);
-  color: $red;
+  color: $grayLight;
   display: block;
   font-family: $codeFontFamily;
   font-size: 12px;
@@ -132,7 +132,13 @@ h3 {
   margin-bottom: 1px;
 }
 li {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+}
+li pre {
+  margin-bottom: -4px;
+}
+strong {
+  color: $red;
 }
 p a, ol a, ul a {
   color: #0064cd;
