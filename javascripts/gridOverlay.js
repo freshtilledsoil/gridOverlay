@@ -1,6 +1,6 @@
 /*
 
-  Grid Overlay Plugin
+  Grid Overlay JQuery Plugin
 
   Author: Steve Hickey, UI Designer & Front-End Developer
   https://twitter.com/stevehickeydsgn | http://stevehickeydesign.com/
@@ -14,7 +14,8 @@
 */
 
 /*
-  @didgeoridoo modifications on 9/3/2012: Freed from jQuery tyranny!
+  @didgeoridoo modifications on 9/3/2012: Freed from jQuery tyranny! 
+  In doing so, also probably broke some cross-browser functionality. C'est la vie.
 */
 
   (function gridOverlay() {

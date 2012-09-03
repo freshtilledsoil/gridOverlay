@@ -1,9 +1,11 @@
-Grid Overlay jQuery Plugin
+Grid Overlay Vanilla.js Plugin
 ==========================
 
-A jQuery plugin for creating a grid overlay on your site. Allows you to easily align design elements to your grid.
+A Vanilla.js plugin for creating a grid overlay on your site. Allows you to easily align design elements to your grid.
 
 Please Note
 -----------
 
-The SASS mixin this project started with has been moved to a GitHub Gist as this project changes to a jQuery plugin. You can find it [here](https://gist.github.com/3013151) if you're interested.
+This is untested in older browsers and in IE-anything. This isn't really OK, because although it's for development purposes, it would be nice to confirm layout pixel-perfection during cross-browser testing. 
+
+I smell a sequel!
