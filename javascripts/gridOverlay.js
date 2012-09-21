@@ -32,7 +32,7 @@
   document.body.appendChild(grid);
   document.body.style.cssText = 'position: relative; height: auto; min-height: 100%';
 
-  $(document).keydown(function (e) {
+  document.addEventListener('keydown', function (e) {
     if (e.keyCode === 71 && e.altKey) {
       $("#gridOverlay").toggle();
     }
