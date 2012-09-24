@@ -32,9 +32,14 @@
   document.body.appendChild(grid);
   document.body.style.cssText = 'position: relative; height: auto; min-height: 100%';
 
-  document.addEventListener('keydown', function (e) {
+  document.addEventListener('keyup', function (e) {
     if (e.keyCode === 71 && e.altKey) {
-      $("#gridOverlay").toggle();
+      var grid = document.getElementById('gridOverlay');
+      if (grid.style.display === 'none') {
+        grid.style.display = 'block';
+      } else {
+        grid.style.display = 'none';
+      }
     }
   });
 
