@@ -1,4 +1,4 @@
-Grid Overlay JavaScript Plugin
+gridOverlay JavaScript Plugin
 ==========================
 A raw JavaScript plugin that creates an overlay on your site for easy alignment of design elements to your grid during development.
 
