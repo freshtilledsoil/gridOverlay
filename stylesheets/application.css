@@ -52,11 +52,11 @@ textarea {
 Typography Styles
 ========================================================================== */
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: museo-sans, "museo-sans", Helvetica, Arial, sans-serif; }
 
 p {
   margin: 0 0 24px 0;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 24px; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizelegibility; }
 
 h1 {
-  font-size: 30px;
+  font-size: 48px;
   line-height: 48px; }
 
 h2 {
@@ -106,24 +106,6 @@ ol {
 
 li {
   line-height: 24px; }
-
-dl {
-  margin-bottom: 24px; }
-
-dt, dd {
-  line-height: 24px; }
-
-dt {
-  font-weight: bold; }
-
-dd {
-  margin-left: 12px; }
-
-hr {
-  margin: 24px 0;
-  border: 0;
-  border-top: 1px solid #555555;
-  border-bottom: 1px solid white; }
 
 strong {
   font-weight: bold; }
@@ -175,31 +157,34 @@ html, body {
   height: 100%;
   padding: 0; }
 
+header {
+  background: #a60303;
+  color: white;
+  height: 216px; }
+
 .center {
   width: 940px;
   margin: 0 auto;
   padding: 37px 0 60px 0; }
 
 h1 {
+  color: white;
   margin-bottom: -5px; }
 
 p {
-  margin-bottom: 21px; }
-
-h3 {
-  margin-bottom: 1px; }
-
-li {
   margin-bottom: 24px; }
 
-li pre {
+h2 {
+  margin-bottom: 1px; }
+
+pre {
   margin-bottom: -4px; }
 
 strong {
-  color: #9d261d; }
+  color: #a60303; }
 
 p a, ol a, ul a {
-  color: #0064cd;
+  color: #a60303;
   font-weight: bold;
   text-decoration: none; }
 
