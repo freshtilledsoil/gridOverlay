@@ -5,11 +5,10 @@ A raw JavaScript plugin that creates an overlay on your site for easy alignment 
 Include the Code
 ----------------
 Grab the [file/code](https://raw.github.com/freshtilledsoil/gridOverlay/master/javascripts/gridOverlay.js) and call it at the end of your document:
-'''html
+
     <script src="javascripts/gridOverlay.js"></script>
     </body>
     </html>
-'''
 
 Demo
 ----
