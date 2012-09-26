@@ -1,16 +1,10 @@
-/*
+/*  gridOverlay Plugin
 
-  gridOverlay Plugin
+    Author: Steve Hickey, UI Designer & Front-End Developer | https://twitter.com/stevehickeydsgn | http://stevehickeydesign.com/
+    Company: Fresh Tilled Soil | http://www.freshtilledsoil.com/ | https://github.com/freshtilledsoil/gridOverlay
 
-  Author: Steve Hickey, UI Designer & Front-End Developer
-  https://twitter.com/stevehickeydsgn | http://stevehickeydesign.com/
-  Company: Fresh Tilled Soil
-  http://www.freshtilledsoil.com/ | https://github.com/freshtilledsoil/gridOverlay
-
-  Licensed for use under the WTFPL | http://en.wikipedia.org/wiki/WTFPL
-  Free for all uses without attribution or credit. The author is not liable for
-  anything that doesn't work or breaks. You're on your own, you've been warned.
-
+    Licensed for use under the WTFPL | http://en.wikipedia.org/wiki/WTFPL -- Free for all uses without attribution or credit.
+    The author is not liable for anything that doesn't work or breaks. You're on your own, you've been warned.
 */
 
 /*jshint multistr:true */
@@ -20,34 +14,31 @@
   "use strict";
 
   var options = {
-    'pageWidth' :       940,                          // set page width
-    'columnWidth' :     60,                        // set column width
+    'pageWidth' :      '940px',                       // set page width (added as max-width for flexible grids)
+    'columnWidth' :    '60px',                        // set column width
     'columnColor' :    'rgba(255, 0, 0, 0.25)',       // set column color
-    'gutterWidth' :     20,                           // set gutter width
+    'gutterWidth' :    '20px',                        // set gutter width
     'gutterColor' :    'transparent',                 // set gutter color
     'widthUnits' :     'px',                          // set measurement units for column/gutter widths
-    'baselineHeight' :  24,                           // set baseline height
+    'baselineHeight' : '24px',                        // set baseline height
     'baselineColor' :  'rgba(255, 255, 255, 0.5)',    // set baseline color
     'initialDisplay' : 'none'                         // use 'block' to have grid visible by default
   },
+  columnGradient = options.columnColor + ' 0, ' + options.columnColor + ' ' + parseInt(options.columnWidth, 10) + 'px, ' + options.gutterColor + ' ' + parseInt(options.columnWidth, 10) + 'px',
+  baselineGradient = ( parseInt(options.baselineHeight, 10) - 1 ) + 'px, ' + options.baselineColor + ' ' + parseInt(options.baselineHeight, 10) + 'px',
   grid = document.createElement('div');
 
   grid.id = 'gridOverlay';
   grid.style.cssText = '\
     display: ' + options.initialDisplay + '; \
-    position: absolute; \
-    top: 0; \
-    right: 0; \
-    bottom: 0; \
-    left: 0; \
-    width: ' + options.pageWidth + options.widthUnits + '; \
-    margin: 0 auto; \
-    background-size: ' + ( options.columnWidth + options.gutterWidth ) + options.widthUnits + ' ' + options.baselineHeight + 'px; \
-    background-image: -webkit-linear-gradient(left, ' + options.columnColor + ' 0, ' + options.columnColor + ' ' + options.columnWidth + options.widthUnits + ', ' + options.gutterColor + ' ' + options.columnWidth + options.widthUnits + '), -webkit-linear-gradient(top, transparent ' + ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px); \
-    background-image: -moz-linear-gradient(left, ' + options.columnColor + ' 0, ' + options.columnColor + ' ' + options.columnWidth + options.widthUnits + ', ' + options.gutterColor + ' ' + options.columnWidth + options.widthUnits + '), -moz-linear-gradient(top, transparent ' + ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px); \
-    background-image: -ms-linear-gradient(left, ' + options.columnColor + ' 0, ' + options.columnColor + ' ' + options.columnWidth + options.widthUnits + ', ' + options.gutterColor + ' ' + options.columnWidth + options.widthUnits + '), -ms-linear-gradient(top, transparent ' + ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px); \
-    background-image: -o-linear-gradient(left, ' + options.columnColor + ' 0, ' + options.columnColor + ' ' + options.columnWidth + options.widthUnits + ', ' + options.gutterColor + ' ' + options.columnWidth + options.widthUnits + '), -o-linear-gradient(top, transparent ' + ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px); \
-    background-image: linear, left, ' + options.columnColor + ' 0, ' + options.columnColor + ' ' + options.columnWidth + options.widthUnits + ', ' + options.gutterColor + ' ' + options.columnWidth + options.widthUnits + ', linear, top, transparent ' + ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px);';
+    position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: 0 auto; width: 100%; \
+    max-width: ' + parseInt(options.pageWidth, 10) + 'px; \
+    background-size: ' + ( parseInt(options.columnWidth, 10) + parseInt(options.gutterWidth, 10) ) + options.widthUnits + ' ' + parseInt(options.baselineHeight, 10) + 'px; \
+    background-image: -webkit-linear-gradient(left, ' + columnGradient + '), -webkit-linear-gradient(top, transparent ' + baselineGradient + '); \
+    background-image:    -moz-linear-gradient(left, ' + columnGradient + '),    -moz-linear-gradient(top, transparent ' + baselineGradient + '); \
+    background-image:     -ms-linear-gradient(left, ' + columnGradient + '),     -ms-linear-gradient(top, transparent ' + baselineGradient + '); \
+    background-image:      -o-linear-gradient(left, ' + columnGradient + '),      -o-linear-gradient(top, transparent ' + baselineGradient + '); \
+    background-image:                 linear, left, ' + columnGradient + ',                  linear, top, transparent ' + baselineGradient + ');';
 
   document.body.appendChild(grid);
   document.body.style.cssText = 'position: relative; height: auto; min-height: 100%';
