@@ -14,25 +14,26 @@
   "use strict";
 
   var options = {
-    'pageWidth' :        '940px',                       // set page width (added as max-width for flexible grids)
-    'columnWidth' :       60,                           // set column width (percentage = 6.382978723404)
-    'gutterWidth' :       20,                           // set gutter width (percentage = 2.127659574468)
-    'widthUnits' :       'px',                           // set measurement units for column/gutter widths
-    'baselineHeight' :    24,                           // set baseline height in pixels (for now)
+    'maxPageWidth' :     '940px',                       // set page width (added as max-width for flexible grids)
+    'columnWidth' :      '60px',                        // set column width
+    'columnCount' :       12,                           // set number of columns
+    'gutterWidth' :      '20px',                        // set gutter width
+    'baselineHeight' :    24,                           // set baseline height (converts to pixels for now)
     'columnColor' :      'rgba(255, 0, 0, 0.25)',       // set column color
     'baselineColor' :    'rgba(255, 255, 255, 0.5)',    // set baseline color
-    'initialDisplay' :   'none'                         // use 'block' to have grid visible by default
+    'initialDisplay' :   'block'                         // use 'block' to have grid visible by default
   },
-  columnGradient = options.columnColor + ' 0, ' + options.columnColor + ' ' + options.columnWidth + options.widthUnits + ', transparent ' + options.columnWidth + options.widthUnits,
+  columnPercentage = ( parseInt(options.columnWidth) / ( parseInt(options.columnWidth) + parseInt(options.gutterWidth) ) ) * 100 + '%',
+  columnGradient = options.columnColor + ' 0, ' + options.columnColor + ' ' + columnPercentage + ', transparent ' + columnPercentage,
+  backgroundSize = ( ( parseInt(options.columnWidth) / parseInt(options.maxPageWidth) ) + ( parseInt(options.gutterWidth) / parseInt(options.maxPageWidth) ) ) * 100 + '%',
   baselineGradient = ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px',
   grid = document.createElement('div');
-
   grid.id = 'gridOverlay';
   grid.style.cssText = '\
     display: ' + options.initialDisplay + '; \
     position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: 0 auto; width: 100%; \
-    max-width: ' + options.pageWidth + '; \
-    background-size: ' + ( options.columnWidth + options.gutterWidth ) + options.widthUnits + ' ' + options.baselineHeight + 'px; \
+    max-width: ' + options.maxPageWidth + '; \
+    background-size: ' + backgroundSize + ' ' + options.baselineHeight + 'px; \
     background-image: -webkit-linear-gradient(left, ' + columnGradient + '), -webkit-linear-gradient(top, transparent ' + baselineGradient + '); \
     background-image:    -moz-linear-gradient(left, ' + columnGradient + '),    -moz-linear-gradient(top, transparent ' + baselineGradient + '); \
     background-image:     -ms-linear-gradient(left, ' + columnGradient + '),     -ms-linear-gradient(top, transparent ' + baselineGradient + '); \

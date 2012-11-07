@@ -21,9 +21,10 @@ $codeFontFamily:              Menlo, Monaco, "Courier New", monospace;
 $linkColor:                   $red;
 $linkColorHover:              darken($linkColor, 15%);
 
-// 12 column 940px grid using Bourbon's grid function =======================
-$gw-column:                   60px;
-$gw-gutter:                   20px;
+// 12 column 940px grid using Bourbon's flexible grid function ==============
+$fg-column:                   60px;
+$fg-gutter:                   20px;
+$fg-max-columns:              12;
 
 /* ==========================================================================
 Reset Styles
@@ -109,24 +110,28 @@ header {
   background-color: $red;
   @include background-image(linear-gradient(top, darken($red, 18%) 0%, $red 70%, darken($red, 4%)));
   color: $white;
-  height: 216px;
+  min-height: 198px;
   text-shadow: 0px 1px 4px rgba($black, 0.36);
 
   .center {
-    background: url("../images/grid-bg.png") no-repeat;
-    padding-top: 39px;
+    background: url("../images/grid-bg.png") no-repeat center top;
+    background-size: 100% 200px;
+    padding: 39px 0 24px 0;
   }
   p {
-    width: grid-width(8);
+    width: 100%;
+    max-width: 620px;
   }
 }
 .center {
-  width: 940px;
+  width: 100%;
+  max-width: 940px;
   margin: 0 auto;
   padding-top: 31px;
 }
 section {
-  width: grid-width(8);
+  width: 100%;
+  max-width: 620px;
   padding-bottom: 36px;
 }
 h1 {
