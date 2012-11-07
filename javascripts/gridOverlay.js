@@ -16,16 +16,15 @@
   var options = {
     'maxPageWidth' :     '940px',                       // set page width (added as max-width for flexible grids)
     'columnWidth' :      '60px',                        // set column width
-    'columnCount' :       12,                           // set number of columns
     'gutterWidth' :      '20px',                        // set gutter width
     'baselineHeight' :    24,                           // set baseline height (converts to pixels for now)
     'columnColor' :      'rgba(255, 0, 0, 0.25)',       // set column color
     'baselineColor' :    'rgba(255, 255, 255, 0.5)',    // set baseline color
     'initialDisplay' :   'block'                         // use 'block' to have grid visible by default
   },
-  columnPercentage = ( parseInt(options.columnWidth) / ( parseInt(options.columnWidth) + parseInt(options.gutterWidth) ) ) * 100 + '%',
+  columnPercentage = ( parseInt(options.columnWidth, 10) / ( parseInt(options.columnWidth, 10) + parseInt(options.gutterWidth, 10) ) ) * 100 + '%',
+  backgroundSize = ( ( parseInt(options.columnWidth, 10) / parseInt(options.maxPageWidth, 10) ) + ( parseInt(options.gutterWidth, 10) / parseInt(options.maxPageWidth, 10) ) ) * 100 + '%',
   columnGradient = options.columnColor + ' 0, ' + options.columnColor + ' ' + columnPercentage + ', transparent ' + columnPercentage,
-  backgroundSize = ( ( parseInt(options.columnWidth) / parseInt(options.maxPageWidth) ) + ( parseInt(options.gutterWidth) / parseInt(options.maxPageWidth) ) ) * 100 + '%',
   baselineGradient = ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px',
   grid = document.createElement('div');
   grid.id = 'gridOverlay';
