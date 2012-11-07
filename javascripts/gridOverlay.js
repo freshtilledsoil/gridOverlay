@@ -22,10 +22,23 @@
     'baselineColor' :    'rgba(255, 255, 255, 0.5)',    // set baseline color
     'initialDisplay' :   'block'                         // use 'block' to have grid visible by default
   },
-  columnPercentage = ( parseInt(options.columnWidth, 10) / ( parseInt(options.columnWidth, 10) + parseInt(options.gutterWidth, 10) ) ) * 100 + '%',
-  backgroundSize = ( ( parseInt(options.columnWidth, 10) / parseInt(options.maxPageWidth, 10) ) + ( parseInt(options.gutterWidth, 10) / parseInt(options.maxPageWidth, 10) ) ) * 100 + '%',
+
+  // convert page, column and gutter width values to integers
+  maxPageWidthInt = parseInt(options.maxPageWidth, 10),
+  columnWidthInt = parseInt(options.columnWidth, 10),
+  gutterWidthInt = parseInt(options.gutterWidth, 10),
+
+  // calculate column width as percentage of max page width
+  columnPercentage = ( columnWidthInt / ( columnWidthInt + gutterWidthInt ) ) * 100 + '%',
+
+  // calculate background size property as percentage of max page width ( (column + gutter)/max page )
+  backgroundSize = ( ( columnWidthInt / maxPageWidthInt ) + ( gutterWidthInt / maxPageWidthInt ) ) * 100 + '%',
+
+  // generate gradient syntax for columns and baseline
   columnGradient = options.columnColor + ' 0, ' + options.columnColor + ' ' + columnPercentage + ', transparent ' + columnPercentage,
   baselineGradient = ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px',
+
+  // create and style grid element
   grid = document.createElement('div');
   grid.id = 'gridOverlay';
   grid.style.cssText = '\
@@ -39,8 +52,13 @@
     background-image:      -o-linear-gradient(left, ' + columnGradient + '),      -o-linear-gradient(top, transparent ' + baselineGradient + '); \
     background-image:                 linear, left, ' + columnGradient + ',                  linear, top, transparent ' + baselineGradient + ');';
 
+  // add grid element to page
   document.body.appendChild(grid);
+
+  // add body styles to prevent scrolling grid and get full height
   document.body.style.cssText = 'position: relative; height: auto; min-height: 100%';
+
+  // toggle grid visibility on Option + G (Mac) or Alt + G (PC)
   document.addEventListener('keyup', function (e) {
     if (e.keyCode === 71 && e.altKey) {
       var grid = document.getElementById('gridOverlay');
