@@ -110,13 +110,13 @@ header {
   background-color: $red;
   @include background-image(linear-gradient(top, darken($red, 18%) 0%, $red 70%, darken($red, 4%)));
   color: $white;
-  min-height: 198px;
+  min-height: 216px;
   text-shadow: 0px 1px 4px rgba($black, 0.36);
 
   .center {
     background: url("../images/grid-bg.png") no-repeat center top;
     background-size: 100% 200px;
-    padding: 39px 0 24px 0;
+    padding: 39px 0 0 0;
   }
   p {
     width: 100%;
@@ -132,7 +132,7 @@ header {
 section {
   width: 100%;
   max-width: 620px;
-  padding-bottom: 36px;
+  padding-bottom: 24px;
 }
 h1 {
   color: $white;
@@ -164,7 +164,7 @@ footer {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-  margin-top: 4px;
+  margin-top: 16px;
   padding: 9px 0;
   text-align: center;
 }
