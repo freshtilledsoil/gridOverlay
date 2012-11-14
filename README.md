@@ -16,7 +16,7 @@ Toggle the grid visibility with Option + G (Mac) or Alt + G (PC). Visit the [dem
 
 Options
 -------
-The JS file includes variables that can be reset so you can specify _maximum page width_, _column width_, _column color_, _gutter width_, _baseline height_, _baseline color_ and whether or not the grid is _visible on page load_ or has to be toggled on.
+The JS file includes variables that can be reset so you can specify _maximum page width_, _column width_, _column count_, _column color_, _gutter width_, _baseline height_, _baseline color_ and whether or not the grid is _visible on page load_ or has to be toggled on.
 
 Please Note
 -----------
