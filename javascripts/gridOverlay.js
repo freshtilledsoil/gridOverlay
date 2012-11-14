@@ -14,26 +14,35 @@
   "use strict";
 
   var options = {
-    'maxPageWidth' :     '940px',                       // set page width (added as max-width for flexible grids)
-    'columnWidth' :      '60px',                        // set column width
+    'maxPageWidth' :     '940px',                       // set overlay width to match page width (as max-width for flexible grids)
+    'columnWidth' :      '60px',                        // set column width in px, em or %
     'columnCount' :       12,                           // set column count
     'columnColor' :      'rgba(255, 0, 0, 0.25)',       // set column color
-    'gutterWidth' :      '20px',                        // set gutter width
-    'baselineHeight' :    24,                           // set baseline height (converts to pixels for now)
+    'gutterWidth' :      '20px',                        // set gutter width in px, em or %
+    'baselineHeight' :    24,                           // set baseline height (requires pixels for now)
     'baselineColor' :    'rgba(255, 255, 255, 0.5)',    // set baseline color
     'initialDisplay' :   'block'                        // use 'block' to have grid visible by default
   },
 
+  // parse integers from option variables
   maxPageWidthInt = parseInt(options.maxPageWidth, 10),
   columnWidthInt = parseInt(options.columnWidth, 10),
   gutterWidthInt = parseInt(options.gutterWidth, 10),
+
+  // calculate column and gutter widths in percentages
   columnPercentage = ( columnWidthInt / maxPageWidthInt ) * 100 + '%',
   gutterPercentage = ( gutterWidthInt / maxPageWidthInt ) * 100 + '%',
+
+  // create baseline grid gradient
   baselineGradient = ( options.baselineHeight - 1 ) + 'px, ' + options.baselineColor + ' ' + options.baselineHeight + 'px',
+
+  // create gridOverlay element
   gridOverlay = document.createElement('div');
 
-  // style grid element
+  // assign id to gridOverlay element
   gridOverlay.id = 'gridOverlay';
+
+  // style gridOverlay element
   gridOverlay.style.cssText = '\
     display: ' + options.initialDisplay + '; \
     position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: 0 auto; width: 100%; \
@@ -59,13 +68,13 @@
       width: ' + columnPercentage + ';';
   };
 
-  // remove right margin from last element in row
+  // remove right margin from last column
   gridOverlay.lastChild.style.marginRight = 0;
 
-  // add body styles to prevent scrolling grid and get full height
+  // style body to prevent scrolling grid and match full page height
   document.body.style.cssText = 'position: relative; height: auto; min-height: 100%';
 
-  // toggle grid visibility on Option + G (Mac) or Alt + G (PC)
+  // enable toggling of grid visibility with Option + G (Mac) or Alt + G (PC)
   document.addEventListener('keyup', function (e) {
     if (e.keyCode === 71 && e.altKey) {
       if (gridOverlay.style.display === 'none') {
