@@ -21,7 +21,7 @@
     'gutterWidth' :      '20px',                        // set gutter width in px, em or %
     'baselineHeight' :    24,                           // set baseline height (requires pixels for now)
     'baselineColor' :    'rgba(255, 255, 255, 0.5)',    // set baseline color
-    'initialDisplay' :   'block'                        // use 'block' to have grid visible by default
+    'initialDisplay' :   'block'                        // 'block' will show grid on load; 'none' will hide on load
   },
 
   // parse integers from option variables
