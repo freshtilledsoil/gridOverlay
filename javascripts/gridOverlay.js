@@ -15,11 +15,11 @@
 
   var options = {
     'maxPageWidth' :     '940px',                       // set overlay width to match page width (as max-width for flexible grids)
-    'columnWidth' :      '60px',                        // set column width in px, em or %
+    'columnWidth' :      '60px',                        // set column width in px
     'columnCount' :       12,                           // set column count
     'columnColor' :      'rgba(255, 0, 0, 0.25)',       // set column color
-    'gutterWidth' :      '20px',                        // set gutter width in px, em or %
-    'baselineHeight' :    24,                           // set baseline height (requires pixels for now)
+    'gutterWidth' :      '20px',                        // set gutter width in px
+    'baselineHeight' :    24,                           // set baseline height in px
     'baselineColor' :    'rgba(255, 255, 255, 0.5)',    // set baseline color
     'initialDisplay' :   'block'                        // 'block' will show grid on load; 'none' will hide on load
   },
